@@ -1,13 +1,29 @@
 {% extends 'main.html' %}
 
 {% block content %}
+    {{ message }}
+
+    {% if number > 10 %}
+        <p>{{ number }} is Greater than 10</p>
+    {% else %}
+        <p>{{ number }} is less than 10</p>
+    {% endif %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<hr>
 <h1>Project</h1>
+<ul>
+    {% for projects in project %}
+        <li>
+        Title:<a href="{% url 'project' projects.id %}" >{{ projects.title }}----{{ projects.description }}
+        </li>
+
+    {% endfor %}
+</ul>
 </body>
 </html>
 
